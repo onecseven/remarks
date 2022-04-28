@@ -8,7 +8,7 @@ def read_meta_file(path, suffix=".metadata"):
     file = path.with_name(f"{path.stem}{suffix}")
     if not file.exists():
         return None
-    data = json.loads(open(file).read())
+    data = json.loads(open(file, encoding="utf8").read())
     return data
 
 
