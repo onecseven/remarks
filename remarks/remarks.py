@@ -55,6 +55,7 @@ def run_remarks(
             name = get_visible_name(path)
             rm_files = list_ann_rm_files(path)
             rm_highlight_files = list_highlight_rm_files(path)
+            print(name, path)
 
             if pdf_name and (pdf_name not in name):
                 continue
@@ -195,12 +196,12 @@ def run_remarks(
 
                 # TODO: add a proper verbose mode (which is off by default)
                 elif not len(highlights["layers"]) > 0:
-                    print(f"- Couldn't find any highlighted text on page #{page_idx}")
+                   # print(f"- Couldn't find any highlighted text on page #{page_idx}")
 
                 elif len(highlights["layers"]) > 0 and ann_type == "scribbles":
-                    print(
-                        "- Found some highlighted text but `--ann_type` flag was set to `scribbles` only"
-                    )
+                   # print(
+                   #     "- Found some highlighted text but `--ann_type` flag was set to `scribbles` only"
+                   # )
 
                 if modified_pdf:
                     mod_pdf.insertPDF(ann_doc, start_at=-1)
@@ -242,4 +243,4 @@ def run_remarks(
 
             pdf_src.close()
         else:
-            print(f"Skipped {filetype} file {path.stem}. Currently, remarks supports only PDF")
+            #print(f"Skipped {filetype} file {path.stem}. Currently, remarks supports only PDF")
